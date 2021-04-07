@@ -58,7 +58,11 @@ namespace MyRPCClientGUI
         public static bool Login(string acc, string pass)
         {
             CheckOnline();
-            return loginServer.Login(acc, pass);
+            //return loginServer.Login(new RequestLogin { Account=acc,Password=pass}).Status;
+
+            ResutlLogin resutl;
+            loginServer.Login(new RequestLogin { Account=acc,Password=pass,},out resutl);
+            return resutl.Status;
         }
     }
 }

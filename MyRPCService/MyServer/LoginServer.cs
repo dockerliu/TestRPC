@@ -26,7 +26,11 @@ namespace MyRPCService.MyServer
             }
         } 
         */
-
+        /// <summary>
+        /// 登陆方法
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [RRQMRPCMethod(async: false)]
         /*
         public bool Login(string account, string password)
@@ -39,14 +43,41 @@ namespace MyRPCService.MyServer
         }
         */
 
+        /*
         public ResutlLogin Login (RequestLogin request)
         {
             ResutlLogin resutl = new ResutlLogin();
             if (request==null)
             {
-                return resutl.Message="";
+                resutl.Message="接收为空！";
+                return resutl;
             }
+            if (request.Account=="123"&&request.Password=="abc")
+            {
+                resutl.Status = true;
+                return resutl;
+            }
+            resutl.Message = "账号或密码错误！";
+            return resutl;
+        }
+        */
+
+        public void Login(RequestLogin request,out ResutlLogin resutl)
+        {
+            resutl = new ResutlLogin();
+            if (resutl==null)
+            {
+                resutl.Message = "接收为空";
+                return;
+            }
+            else if (request.Account=="123"&&request.Password=="abc")
+            {
+                resutl.Status = true;
+                return;
+            }
+            resutl.Message = "账号或密码错误";
             return;
         }
+
     }
 }
