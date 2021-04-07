@@ -30,6 +30,7 @@ namespace MyRPCClientGUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            /* 第一种方法
             RPCClient client = new RPCClient();
 
             client.Connect(new ConnectSetting { TargetIP="127.0.0.1",TargetPort=7789});
@@ -39,6 +40,12 @@ namespace MyRPCClientGUI
 
             bool isLogin= loginServer.Login(this.Tb_Account.Text, this.Tb_Password.Text);
             MessageBox.Show(isLogin.ToString());
+            */
+
+            //第二种方法
+            bool isLogin = RemoteServer.Login(this.Tb_Account.Text, this.Tb_Password.Text);
+            MessageBox.Show(isLogin.ToString());
+
         }
 
         private static void Login()

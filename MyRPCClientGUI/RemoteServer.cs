@@ -23,7 +23,7 @@ namespace MyRPCClientGUI
         /// <summary>
         /// 检测是否在线
         /// </summary>
-        private void CheckOnline()
+        private static void CheckOnline()
         {
             if (!client.Online)
             {
@@ -48,9 +48,16 @@ namespace MyRPCClientGUI
             }
 
         }
+
+        /// <summary>
+        /// 检测是否已登陆
+        /// </summary>
+        /// <param name="acc"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         public static bool Login(string acc, string pass)
         {
-            
+            CheckOnline();
             return loginServer.Login(acc, pass);
         }
     }

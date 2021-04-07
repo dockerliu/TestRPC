@@ -28,7 +28,8 @@ namespace MyRPCService
             setting.ProxyToken = "abc123";
             //setting.Version = new Version(1, 0, 0, 0);
             service.OpenRPCServer(setting,new RRQMSocket.Plugin.RPC.RPCCompiler());
-            
+
+           // service.SetMethodEnable("Login",false);//禁用方法
 
             Console.WriteLine("服务器启动成功！");
 
